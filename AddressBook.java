@@ -115,6 +115,37 @@ public class AddressBook
 		ArrayList<AddressBook> alist = new ArrayList<AddressBook>();
 		alist.add(book);
 		System.out.println(alist);
+		//Editing contact
+		System.out.println("Enter name to edit:");
+		String name = sc.next();
+		if(name.equalsIgnoreCase(first_name))
+		{
+			System.out.println("Enter First Name:");
+			first_name = sc.next();
+			System.out.println("Enter Last Name:");
+			last_name=sc.next();
+			System.out.println("Enter City : ");
+			city = sc.next();
+			System.out.println("Enter State: ");
+			state = sc.next();
+			System.out.println("Enter Phone Number: ");
+			ph_number = sc.next();
+			System.out.println("Enter Zip: ");
+			zip = sc.next();
+			System.out.println("Enter Email: ");
+			email = sc.next();
+			AddressBook book1 = new AddressBook(first_name,last_name,city,state,ph_number,zip,email);
+			ArrayList<AddressBook> alist1 = new ArrayList<AddressBook>();
+			alist1.add(book1);
+			System.out.println(alist1);
+			System.out.println("------------------");
+			break;
+		}
+		else
+		{
+			System.out.println("Invalid Name...! Re-Enter Name");
+			System.out.println("-------------------");
+		}
         }
 }
 
