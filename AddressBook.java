@@ -146,6 +146,21 @@ public class AddressBook
 			System.out.println("Invalid Name...! Re-Enter Name");
 			System.out.println("-------------------");
 		}
+		//Delete existing Contact Details
+		System.out.println("Enter Name to Delete :");
+		String dtname = sc.next();
+		if(dtname.contains(first_name)==true)
+		{
+			alist.clear();
+			System.out.println("Successfully deleted...");
+			System.out.println("------------------------");
+			break;
+		}
+		else
+		{
+			System.out.println("Invalid Name...! Enter valid name to delete");
+			System.out.println("--------------------------");
+		}
         }
 }
 
