@@ -1,3 +1,5 @@
+package addressbook;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -90,12 +92,16 @@ public class AddressBook
 
 	@Override
 	public String toString() {
-		return "First_name=" + first_name + ", Last_name=" + last_name + ", City=" + city + ", State="
+		return "AddressBook-->First_name=" + first_name + ", Last_name=" + last_name + ", City=" + city + ", State="
 				+ state + ", Phone number=" + ph_number + ", Zip=" + zip + ", Email=" + email;
 	}
-        public static void main(String[] args)
-        {
-                System.out.println("Welcome to AddressBook Computation Program");
+
+
+	public static void main(String[] args)
+	{
+		System.out.println("Welcome to AddressBook Computation Program");
+		Scanner sc = new Scanner(System.in);
+
 		System.out.println("Enter First Name:");
 		String first_name = sc.next();
 		System.out.println("Enter Last Name:");
@@ -110,79 +116,101 @@ public class AddressBook
 		String zip = sc.next();
 		System.out.println("Enter Email: ");
 		String email = sc.next();
-
+		
 		AddressBook book = new AddressBook(first_name,last_name,city,state,ph_number,zip,email);
 		ArrayList<AddressBook> alist = new ArrayList<AddressBook>();
 		alist.add(book);
 		System.out.println(alist);
-		//Editing contact
-		System.out.println("Enter name to edit:");
-		String name = sc.next();
-		if(name.equalsIgnoreCase(first_name))
-		{
-			System.out.println("Enter First Name:");
-			first_name = sc.next();
-			System.out.println("Enter Last Name:");
-			last_name=sc.next();
-			System.out.println("Enter City : ");
-			city = sc.next();
-			System.out.println("Enter State: ");
-			state = sc.next();
-			System.out.println("Enter Phone Number: ");
-			ph_number = sc.next();
-			System.out.println("Enter Zip: ");
-			zip = sc.next();
-			System.out.println("Enter Email: ");
-			email = sc.next();
-			AddressBook book1 = new AddressBook(first_name,last_name,city,state,ph_number,zip,email);
-			ArrayList<AddressBook> alist1 = new ArrayList<AddressBook>();
-			alist1.add(book1);
-			System.out.println(alist1);
-			System.out.println("------------------");
-			break;
-		}
-		else
-		{
-			System.out.println("Invalid Name...! Re-Enter Name");
-			System.out.println("-------------------");
-		}
-		//Delete existing Contact Details
-		System.out.println("Enter Name to Delete :");
-		String dtname = sc.next();
-		if(dtname.contains(first_name)==true)
-		{
-			alist.clear();
-			System.out.println("Successfully deleted...");
-			System.out.println("------------------------");
-			break;
-		}
-		else
-		{
-			System.out.println("Invalid Name...! Enter valid name to delete");
-			System.out.println("--------------------------");
-		}
-		//Add more contacts
-		System.out.println("Add more contacts:");
-		System.out.println("Enter First Name:");
-		first_name = sc.next();
-		System.out.println("Enter Last Name:");
-		last_name=sc.next();
-		System.out.println("Enter City : ");
-		city = sc.next();
-		System.out.println("Enter State: ");
-		state = sc.next();
-		System.out.println("Enter Phone Number: ");
-		ph_number = sc.next();
-		System.out.println("Enter Zip: ");
-		zip = sc.next();
-		System.out.println("Enter Email: ");
-		email = sc.next();
-		AddressBook book2 = new AddressBook(first_name,last_name,city,state,ph_number,zip,email);
-		ArrayList<AddressBook> alist1 = new ArrayList<AddressBook>();
-		alist1.add(book2);
-		System.out.println(alist);
-		System.out.println(alist1);
-		System.out.println("------------------");
-        }
-}
 
+		System.out.println("-------------------------------");
+
+		String yn;
+		do
+		{
+			System.out.println("Enter your choice \n1.Update Contact. \n2.Delete Contact. \n3.Add more Contact. \n ");
+			int ch = sc.nextInt();
+			switch(ch)
+			{
+			case 1:	System.out.println("Enter name to edit:");
+				String name = sc.next();
+				if(name.equalsIgnoreCase(first_name))
+				{
+					System.out.println("Enter First Name:");
+					first_name = sc.next();
+					System.out.println("Enter Last Name:");
+					last_name=sc.next();
+					System.out.println("Enter City : ");
+					city = sc.next();
+					System.out.println("Enter State: ");
+					state = sc.next();
+					System.out.println("Enter Phone Number: ");
+					ph_number = sc.next();
+					System.out.println("Enter Zip: ");
+					zip = sc.next();
+					System.out.println("Enter Email: ");
+					email = sc.next();
+					AddressBook book1 = new AddressBook(first_name,last_name,city,state,ph_number,zip,email);
+					ArrayList<AddressBook> alist1 = new ArrayList<AddressBook>();
+					alist1.add(book1);
+					System.out.println(alist1);
+					System.out.println("------------------");
+					break;
+				}
+				else
+				{
+					System.out.println("Invalid Name...! Re-Enter Name");
+					System.out.println("-------------------");
+				}
+				break;
+
+			case 2:	//Delete existing Contact Details
+				System.out.println("Enter Name to Delete :");
+				String dtname = sc.next();
+				if(dtname.contains(first_name)==true)
+				{
+					alist.clear();
+					System.out.println("Successfully deleted...");
+					System.out.println("------------------------");
+					break;
+				}
+				else
+				{
+					System.out.println("Invalid Name...! Enter valid name to delete");
+					System.out.println("--------------------------");
+				}
+
+				break;
+
+			case 3:System.out.println("Add more contacts:");
+			       System.out.println("Enter First Name:");
+				first_name = sc.next();
+				System.out.println("Enter Last Name:");
+				last_name=sc.next();
+				System.out.println("Enter City : ");
+				city = sc.next();
+				System.out.println("Enter State: ");
+				state = sc.next();
+				System.out.println("Enter Phone Number: ");
+				ph_number = sc.next();
+				System.out.println("Enter Zip: ");
+				zip = sc.next();
+				System.out.println("Enter Email: ");
+				email = sc.next();
+				AddressBook book2 = new AddressBook(first_name,last_name,city,state,ph_number,zip,email);
+				ArrayList<AddressBook> alist1 = new ArrayList<AddressBook>();
+				alist1.add(book2);
+				System.out.println(alist);
+				System.out.println(alist1);
+				System.out.println("------------------");
+				break;
+				
+			default:System.out.println("Invalid choice....! Enter valid choice..");
+					break;
+			}
+			System.out.println("Do you want to continue then press (y for yes and n for no) : ");
+			yn=sc.next();
+		}while(yn.equals("y") || yn.equals("Y") || yn.equals("n") || yn.equals("N"));
+		
+	}
+
+}
